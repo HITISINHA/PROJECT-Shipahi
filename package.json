@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "compile": "node build/scripts/compile",
     "build": "npm run clean && cross-env NODE_ENV=production npm run compile",
     "start": "cross-env NODE_ENV=development node build/scripts/start",
@@ -23,6 +25,8 @@
     "bootstrap": "^4.0.0-alpha",
     "compression": "^1.6.2",
     "express": "^4.14.0",
+    "gh-pages": "^1.1.0",
+    "material-ui": "^0.20.0",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
     "prop-types": "^15.5.10",

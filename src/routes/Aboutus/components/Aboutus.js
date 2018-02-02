@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Counter = ({ counter, increment, doubleAsync }) => (
+export const Aboutus = ({ aboutus, increment, doubleAsync }) => (
   <div style={{ margin: '0 auto' }} >
-    <h2>Counter: {counter}</h2>
+    <h2>Aboutus: {aboutus}</h2>
     <button className='btn btn-primary' onClick={increment}>
       Increment
     </button>
@@ -13,10 +13,10 @@ export const Counter = ({ counter, increment, doubleAsync }) => (
     </button>
   </div>
 )
-Counter.propTypes = {
-  counter: PropTypes.number.isRequired,
+Aboutus.propTypes = {
+  aboutus: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired,
   doubleAsync: PropTypes.func.isRequired,
 }
 
-export default Counter
+export default Aboutus
