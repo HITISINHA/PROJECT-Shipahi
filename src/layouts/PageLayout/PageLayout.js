@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import HomeAppBarComponent from './HomeAppBarComponent'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {cyan100} from 'material-ui/styles/colors';
+// import {blue900} from 'material-ui/styles/colors';
 
 const muiTheme = getMuiTheme({
-  // palette: {
-  //   primary1Color: cyan100
-  //   // primary2Color: cyan700,
-  //   // primary3Color: grey400,
+  palette: {
+    primary1Color: '#002b5a',
+    // primary2Color: '#5472d3',
+    // primary3Color: grey400,
   //   // accent1Color: pinkA200,
   //   // accent2Color: grey100,
   //   // accent3Color: grey500,
@@ -25,7 +25,7 @@ const muiTheme = getMuiTheme({
   // },
   // appBar: {
   //   height: 50,
-  // },
+  }
 });
 
 

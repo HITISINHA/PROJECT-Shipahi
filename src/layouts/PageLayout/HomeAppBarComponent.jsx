@@ -1,5 +1,6 @@
 import React from 'react';
 import { IndexLink, Link } from 'react-router'
+import autobind from 'react-autobind'
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import MenuItem from 'material-ui/MenuItem';
@@ -16,13 +17,17 @@ import ProductServicesIcon from 'material-ui/svg-icons/social/domain';
 import BlogIcon from 'material-ui/svg-icons/av/web'; 
 import {pinkA400,blue50} from 'material-ui/styles/colors';
 import Logo from './assets/logo.png';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 import {browserHistory} from 'react-router';
 const iconStyles = {
   marginRight: 24,
 };
 const styles={
   homeLogo: {
-    'height': '50px'
+    'height': '64px',
+    'margin':'0px',
+    'padding':'0px'
   }
 };
 export default class AppBarComponent extends React.Component {
@@ -30,6 +35,7 @@ export default class AppBarComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {open: false};
+    autobind(this);
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
@@ -44,6 +50,7 @@ export default class AppBarComponent extends React.Component {
     changeRoute('/');
   }
   handleClickServices(){
+    console.log("hi")
     changeRoute('/services');
   } 
   handleClickAboutus(){
@@ -63,9 +70,8 @@ export default class AppBarComponent extends React.Component {
     return (
       <div>
         <AppBar
-            title="Shipahi"
-            titleStyle={{"margin":"auto"}}
-            iconElementLeft={<img alt='SPH' style={{styles}} className='home-logo' src={Logo} />}          
+            iconElementLeft={<img alt='SPH' style={{styles}} className='home-logo' src={Logo} />}   
+            iconElementRight={<FloatingActionButton><ContentAdd /></FloatingActionButton>}       
         />
         
         <Tabs>
@@ -100,20 +106,6 @@ export default class AppBarComponent extends React.Component {
             onClick={this.handleClickBlog}
           />
         </Tabs>
-        {/* <Drawer
-          docked={false}
-          width={200}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
-        >
-          <AppBar title="Menu" />
-          <MenuItem onClick={this.handleClose}><IndexLink to='/'><HomeIcon />Home</IndexLink></MenuItem>
-          <MenuItem onClick={this.handleClose}><Link to='/counter'><ProductServicesIcon /></Link></MenuItem>
-          <MenuItem onClick={this.handleClose}><Link to='/counter'><AboutIcon /></Link></MenuItem>
-          <MenuItem onClick={this.handleClose}><Link to='/counter'><ContactIcon /></Link></MenuItem>
-          <MenuItem onClick={this.handleClose}><Link to='/counter'><StoreIcon /></Link></MenuItem>
-          <MenuItem onClick={this.handleClose}><Link to='/counter'><BlogIcon /></Link></MenuItem>
-        </Drawer> */}
       </div>
     );
   }
